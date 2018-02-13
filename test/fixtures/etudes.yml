@@ -1,19 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   secteuretudes: MyString
   niveau: MyString
-  datedebut: 2018-02-12 21:28:25
-  datecompletion: 2018-02-12 21:28:25
+  datedebut: 2018-02-12 21:34:10
+  datecompletion: 2018-02-12 21:34:10
   client: one
   institution: one
 
 two:
-  id: 1
   secteuretudes: MyString
   niveau: MyString
-  datedebut: 2018-02-12 21:28:25
-  datecompletion: 2018-02-12 21:28:25
+  datedebut: 2018-02-12 21:34:10
+  datecompletion: 2018-02-12 21:34:10
   client: two
   institution: two
