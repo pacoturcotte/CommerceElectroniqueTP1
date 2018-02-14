@@ -3,4 +3,5 @@ class Etude < ApplicationRecord
   belongs_to :institution
   has_many :institutions, inverse_of: :etude
   has_many :clients, inverse_of: :etude
+  validates_presence_of :secteuretudes
 end
