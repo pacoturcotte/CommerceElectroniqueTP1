@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 20180214023850) do
 
   create_table "client_has_conjoints", force: :cascade do |t|
     t.integer "client_id"
+    t.integer "client_conjoint_id"
     t.datetime "datedebut"
     t.datetime "datefin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_client_has_conjoints_on_client_id"
+    t.index ["client_conjoint_id"], name: "index_client_has_conjoints_on_client_conjoint_id"
   end
 
   create_table "client_has_employeurs", force: :cascade do |t|
