@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213023435) do
+ActiveRecord::Schema.define(version: 20180214023850) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "numerocivique"
@@ -20,6 +20,47 @@ ActiveRecord::Schema.define(version: 20180213023435) do
     t.string "province"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "client_etat_civils", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "etatcivil_id"
+    t.datetime "datedebut"
+    t.datetime "datefin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_etat_civils_on_client_id"
+    t.index ["etatcivil_id"], name: "index_client_etat_civils_on_etatcivil_id"
+  end
+
+  create_table "client_has_conjoints", force: :cascade do |t|
+    t.integer "client_id"
+    t.datetime "datedebut"
+    t.datetime "datefin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_has_conjoints_on_client_id"
+  end
+
+  create_table "client_has_employeurs", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "employeur_id"
+    t.datetime "datedebut"
+    t.datetime "datefin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_has_employeurs_on_client_id"
+    t.index ["employeur_id"], name: "index_client_has_employeurs_on_employeur_id"
+  end
+
+  create_table "client_has_enfants", force: :cascade do |t|
+    t.integer "enfant_id"
+    t.integer "client_id"
+    t.boolean "lien"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_has_enfants_on_client_id"
+    t.index ["enfant_id"], name: "index_client_has_enfants_on_enfant_id"
   end
 
   create_table "clients", force: :cascade do |t|

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  employeur: one
+  datedebut: 2018-02-13 21:38:50
+  datefin: 2018-02-13 21:38:50
+
+two:
+  client: two
+  employeur: two
+  datedebut: 2018-02-13 21:38:50
+  datefin: 2018-02-13 21:38:50

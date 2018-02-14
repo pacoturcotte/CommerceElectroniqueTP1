@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  datedebut: 2018-02-13 21:38:39
+  datefin: 2018-02-13 21:38:39
+
+two:
+  client: two
+  datedebut: 2018-02-13 21:38:39
+  datefin: 2018-02-13 21:38:39
