@@ -86,12 +86,12 @@ class ClientsController < ApplicationController
 
   def client_params
     params.require(:client).permit(
-      :prenom, :nom, :datenaissance, :nas, :adresse_id, :nombreenfant, :comptetaxeproprietaire,
+      :prenom, :nom, :datenaissance, :nas, :adresse_id, :nombreenfants, :comptetaxesproprietaire,
       adresses_attributes: [:id, :numerocivique, :rue, :codepostal, :ville, :province, :_destroy],
-      etudes_attributes: [:id, :_destroy, :secteuretude, :niveau, :datedebut, :datecompletion, :institution_id],
+      etudes_attributes: [:id, :_destroy, :secteuretudes, :niveau, :datedebut, :datecompletion, :institution_id],
       institutions_attributes: [:id, :nom, :_destroy],
       employeurs_attributes: [:id, :nom, :_destroy],
-      etatcivils_attributes: [:id, :type, :_destroy],
+      etat_civils_attributes: [:id, :type, :_destroy],
       enfants_attributes: [:id, :nom, :prenom, :datenaissance, :_destroy]
     )
   end
