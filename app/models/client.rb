@@ -7,6 +7,7 @@ class Client < ApplicationRecord
   has_many :etat_civils, through: :client_etat_civils
   has_many :client_has_employeurs
   has_many :employeurs, through: :client_has_employeurs
+  has_many :conjoint, class_name: 'Client'
 
   validates_presence_of :nom
 
