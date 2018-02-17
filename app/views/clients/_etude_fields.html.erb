@@ -1,0 +1,24 @@
+<div class="nested-fields">
+
+</div>
+
+<div class="nested-fields well well-compact">
+  <div class="form-inline">
+    <%= f.input :secteuretudes %>
+    <%= f.input :niveau %>
+    <%= f.input :datedebut %>
+    <%= f.input :datecompletion %>
+    <%= link_to_remove_association f, data: {:confirm => 'Voulez vraiment faire cela?'}, class: 'btn btn-default btn-xs' do
+    %>
+      <div class="glyphicon glyphicon-remove">
+      </div>
+    <% end %></div>
+  <div class="institutions">
+    <%= f.simple_fields_for :institutions do |institution|
+    %><%= render 'institution_fields', :f => institution %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Ajouter une institution', f, :institutions %>
+    </div>
+  </div>
+</div>

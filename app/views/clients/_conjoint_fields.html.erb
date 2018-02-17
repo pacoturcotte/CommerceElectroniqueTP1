@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <%= f.input :nom, :hint => 'Le nom du client' %>
+  <%= f.input :prenom, :hint => 'Le prénom du client' %>
+  <%= f.input :datenaissance, :hint => 'La date de naissance du client' %>
+  <%= f.input :nas, :hint => 'Le NAS du client' %>
+  <%= f.input :nombreenfants, :hint => 'Le nombre denfants du client' %>
+  <%= f.input :comptetaxesproprietaire, :hint => 'Le compte taxes propriétaire du client' %>
+  <%= link_to_remove_association "retirer le conjoint", f %>
+</div>

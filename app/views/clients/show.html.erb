@@ -39,6 +39,12 @@
       <%= @client.comptetaxesproprietaire %>
     </td>
   </tr>
+  <tr>
+    <td>Conjoint</td>
+    <td>
+      <%= (@client.conjoint ? @client.conjoint.try(:nom) : 'Pas de conjoint') %>
+    </td>
+  </tr>
 </table>
 <h3>Adresses</h3>
 <p>
@@ -96,8 +102,18 @@
   <% @client.etudes.each do |etude|
   %>
     <tr>
-      <td><%= etude.secteuretudes %>
-      </td>
+      <td><%= etude.secteuretudes %></td>
+      <td><%= etude.niveau %></td>
+      <td><%= etude.datedebut %></td>
+      <td><%= etude.datecompletion %></td>
+    </tr>
+  <% end %></table>
+<h3>Institutions</h3>
+<table class="table">
+  <% @client.institutions.each do |institution|
+  %>
+    <tr>
+      <td><%= institution.nom %></td>
     </tr>
   <% end %></table>
 

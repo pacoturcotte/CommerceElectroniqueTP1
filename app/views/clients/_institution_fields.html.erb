@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <div class="form-inline">
+    <b>Institutions</b>
+    <%= f.input :name, placeholder: 'Inscrivez le nom de institution', label: false %>
+    <%= link_to_remove_association f, class: 'btn btn-default btn-xs' do %>
+      <div class="glyphicon glyphicon-remove">
+      </div>
+    <% end %>
+  </div>
+</div>

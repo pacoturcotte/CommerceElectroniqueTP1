@@ -1,0 +1,76 @@
+<%= simple_form_for @client do |f| %>
+  <%= f.input :nom, :hint => 'Le nom du client' %>
+  <%= f.input :prenom, :hint => 'Le prénom du client' %>
+  <%= f.input :datenaissance, :hint => 'La date de naissance du client' %>
+  <%= f.input :nas, :hint => 'Le NAS du client' %>
+  <%= f.input :nombreenfants, :hint => 'Le nombre denfants du client' %>
+  <%= f.input :comptetaxesproprietaire, :hint => 'Le compte taxes propriétaire du client' %>
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+      <%= link_to 'Adresses (:has_many)', '#adresses', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to 'Etudes (:has_many --nested)', '#etudes', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to 'Conjoint (:belongs_to)', '#conjoint', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to 'Employeurs (:has_many :through)', '#employeurs', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to 'Enfants (:has_many :through)', '#enfants', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to 'Etats_civils (:has_many :through)', '#etats_civils', data: {toggle: 'tab'} %>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="adresses" role="tabpanel">
+      <%= f.simple_fields_for :adresses do |adresse|
+      %><%= render 'adresse_fields', :f => adresse %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Ajouter une adresse', f, :adresses %>
+
+      </div>
+    </div>
+    <div class="tab-pane" id="etudes" role="tabpanel">
+      <%= f.simple_fields_for :etudes do |etude|
+      %><%= render 'etude_fields', :f => etude %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Ajouter des études', f, :etudes %>
+
+      </div>
+    </div>
+    <div class="tab-pane" id="conjoint" role="tabpanel">
+      <div id="conjoint_from_list">
+        <%= f.association :conjoint, collection: Client.order(:nom), prompt: 'Choisir un conjoint déjà existant' %>
+      </div><%= link_to_add_association 'Ajouter une nouvelle personne comme conjoint', f, :owner %>
+
+    </div>
+    <div class="tab-pane" id="employeurs" role="tabpanel">
+      <%= f.simple_fields_for :employeurs do |employeur|
+      %><%= render 'employeurs', :f => employeur %>
+      <% end %>
+      <%= link_to_add_association 'Ajouter un employeur', f, :employeurs %>
+    </div>
+    <div class="tab-pane" id="enfants" role="tabpanel">
+      <%= f.simple_fields_for :enfants do |enfant|
+      %><%= render 'enfants', :f => enfant %>
+      <% end %>
+      <%= link_to_add_association 'Ajouter un enfant', f, :enfants %>
+    </div>
+    <div class="tab-pane" id="etats_civils" role="tabpanel">
+      <%= f.simple_fields_for :etats_civils do |etats_civil|
+      %><%= render 'etats_civils', :f => etats_civil %>
+      <% end %>
+      <%= link_to_add_association 'Ajouter un etat civil', f, :etats_civils %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.button :submit, :disable_with => 'Please wait ...' %>
+  </div>
+<% end %>
