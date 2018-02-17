@@ -1,2 +1,104 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
+<div class="alert alert-warning">
+  <p>
+    Un client possède plusieurs informations différentes.
+  </p></div>
+<table class="table">
+  <tr>
+    <td>Nom</td>
+    <td>
+      <%= @client.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>Prenom</td>
+    <td>
+      <%= @client.prenom %>
+    </td>
+  </tr>
+  <tr>
+    <td>Date de naissance</td>
+    <td>
+      <%= @client.datenaissance %>
+    </td>
+  </tr>
+  <tr>
+    <td>NAS</td>
+    <td>
+      <%= @client.nas %>
+    </td>
+  </tr>
+  <tr>
+    <td>Nombre d'enfants</td>
+    <td>
+      <%= @client.nombreenfants %>
+    </td>
+  </tr>
+  <tr>
+    <td>Compte taxes propriétaire</td>
+    <td>
+      <%= @client.comptetaxesproprietaire %>
+    </td>
+  </tr>
+</table>
+<h3>Adresses</h3>
+<p>
+  Liste de toutes les adresses ici.
+
+</p>
+<table class="table">
+  <% @client.adresses.each do |adresse|
+  %>
+    <tr>
+      <td><%= adresse.numerocivique %>
+      </td>
+      <td><%= adresse.rue %>
+      </td>
+      <td><%= adresse.codepostal %></td>
+      <td><%= adresse.ville  %></td>
+      <td><%= adresse.province %>
+      </td>
+    </tr>
+  <% end %></table>
+<h3>Enfants</h3>
+<table class="table">
+  <% @client.enfants.each do |enfant|
+  %>
+    <tr>
+      <td><%= enfant.nom %>
+      </td>
+      <td><%= enfant.prenom %>
+      </td>
+      <td><%= enfant.datenaissance %>
+
+      </td>
+    </tr>
+  <% end %></table>
+<h3>Etats civils</h3>
+<table class="table">
+  <% @client.etat_civils.each do |etat_civil|
+  %>
+    <tr>
+      <td><%= etat_civil.type %></td>
+    </tr>
+  <% end %>
+</table>
+<h3>Employeurs</h3>
+<table class="table">
+  <% @client.employeurs.each do |employeur|
+  %>
+    <tr>
+      <td><%= employeur.nom %>
+      </td>
+    </tr>
+  <% end %></table>
+<h3>Études</h3>
+<table class="table">
+  <% @client.etudes.each do |etude|
+  %>
+    <tr>
+      <td><%= etude.secteuretudes %>
+      </td>
+    </tr>
+  <% end %></table>
+
+<%= link_to 'Edit', edit_client_path(@client) %> | <%= link_to 'Back', clients_path %>
