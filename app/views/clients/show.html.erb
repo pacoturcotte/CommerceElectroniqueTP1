@@ -52,16 +52,16 @@
 
 </p>
 <table class="table">
-  <% @client.adresses.each do |adresse|
+  <% @client.adresses.each do |adress|
   %>
     <tr>
-      <td><%= adresse.numerocivique %>
+      <td><%= adress.numerocivique %>
       </td>
-      <td><%= adresse.rue %>
+      <td><%= adress.rue %>
       </td>
-      <td><%= adresse.codepostal %></td>
-      <td><%= adresse.ville  %></td>
-      <td><%= adresse.province %>
+      <td><%= adress.codepostal %></td>
+      <td><%= adress.ville  %></td>
+      <td><%= adress.province %>
       </td>
     </tr>
   <% end %></table>
@@ -99,13 +99,13 @@
   <% end %></table>
 <h3>Études</h3>
 <table class="table">
-  <% @client.etudes.each do |etude|
+  <% @client.studies.each do |study|
   %>
     <tr>
-      <td><%= etude.secteuretudes %></td>
-      <td><%= etude.niveau %></td>
-      <td><%= etude.datedebut %></td>
-      <td><%= etude.datecompletion %></td>
+      <td><%= study.secteuretudes %></td>
+      <td><%= study.niveau %></td>
+      <td><%= study.datedebut %></td>
+      <td><%= study.datecompletion %></td>
     </tr>
   <% end %></table>
 <h3>Institutions</h3>

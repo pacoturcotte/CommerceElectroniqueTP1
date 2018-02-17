@@ -8,10 +8,10 @@
 
   <ul class="nav nav-tabs" role="tablist">
     <li class="active">
-      <%= link_to 'Adresses (:has_many)', '#adresses', data: {toggle: 'tab'} %>
+      <%= link_to 'Adresses (:belongs_to)', '#adresses', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Etudes (:has_many --nested)', '#etudes', data: {toggle: 'tab'} %>
+      <%= link_to 'Studies (:has_many)', '#studies', data: {toggle: 'tab'} %>
     </li>
     <li>
       <%= link_to 'Conjoint (:belongs_to)', '#conjoint', data: {toggle: 'tab'} %>
@@ -28,20 +28,17 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="adresses" role="tabpanel">
-      <%= f.simple_fields_for :adresses do |adresse|
-      %><%= render 'adresse_fields', :f => adresse %>
+      <%= f.simple_fields_for :adresses do |adress|
+      %><%= render 'adress_fields', :f => adress %>
       <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Ajouter une adresse', f, :adresses %>
 
-      </div>
     </div>
-    <div class="tab-pane" id="etudes" role="tabpanel">
-      <%= f.simple_fields_for :etudes do |etude|
-      %><%= render 'etude_fields', :f => etude %>
+    <div class="tab-pane" id="studies" role="tabpanel">
+      <%= simple_fields_for :studies do |study|
+      %><%= render 'study_fields', :f => study %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association 'Ajouter des études', f, :etudes %>
+        <%= link_to_add_association 'Ajouter des études', f, :studies %>
 
       </div>
     </div>

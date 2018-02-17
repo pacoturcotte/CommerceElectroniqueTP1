@@ -1,6 +1,6 @@
-class CreateEtudes < ActiveRecord::Migration[5.1]
+class CreateStudies < ActiveRecord::Migration[5.1]
   def change
-    create_table :etudes do |t|
+    create_table :studies do |t|
       t.string :secteuretudes
       t.string :niveau
       t.datetime :datedebut

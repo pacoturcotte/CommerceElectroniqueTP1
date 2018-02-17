@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214023850) do
+ActiveRecord::Schema.define(version: 20180217161828) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "numerocivique"
@@ -35,13 +35,11 @@ ActiveRecord::Schema.define(version: 20180214023850) do
 
   create_table "client_has_conjoints", force: :cascade do |t|
     t.integer "client_id"
-    t.integer "client_conjoint_id"
     t.datetime "datedebut"
     t.datetime "datefin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_client_has_conjoints_on_client_id"
-    t.index ["client_conjoint_id"], name: "index_client_has_conjoints_on_client_conjoint_id"
   end
 
   create_table "client_has_employeurs", force: :cascade do |t|
@@ -100,7 +98,15 @@ ActiveRecord::Schema.define(version: 20180214023850) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "etudes", force: :cascade do |t|
+  create_table "institutions", force: :cascade do |t|
+    t.string "nom"
+    t.integer "adresse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adresse_id"], name: "index_institutions_on_adresse_id"
+  end
+
+  create_table "studies", force: :cascade do |t|
     t.string "secteuretudes"
     t.string "niveau"
     t.datetime "datedebut"
@@ -109,16 +115,8 @@ ActiveRecord::Schema.define(version: 20180214023850) do
     t.integer "institution_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_etudes_on_client_id"
-    t.index ["institution_id"], name: "index_etudes_on_institution_id"
-  end
-
-  create_table "institutions", force: :cascade do |t|
-    t.string "nom"
-    t.integer "adresse_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["adresse_id"], name: "index_institutions_on_adresse_id"
+    t.index ["client_id"], name: "index_studies_on_client_id"
+    t.index ["institution_id"], name: "index_studies_on_institution_id"
   end
 
   create_table "versions", force: :cascade do |t|

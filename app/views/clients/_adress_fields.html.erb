@@ -4,5 +4,9 @@
   <%= f.input :codepostal %>
   <%= f.input :ville %>
   <%= f.input :province %>
+  <div class="links">
+    <%= link_to_add_association 'Ajouter une adresse', f, :adresses %>
+
+  </div>
   <%= link_to_remove_association "retirer l'adresse", f %>
 </div>

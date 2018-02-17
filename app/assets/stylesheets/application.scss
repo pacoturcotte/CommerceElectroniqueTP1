@@ -20,5 +20,67 @@
 
 @import "navbar-top-fixed";
 
-@import "projects";
+@import "clients";
 
+
+#studies .input {
+
+  margin-left: 10px;
+
+}
+
+
+#studies div.nested-fields table {
+
+  margin-left: 150px;
+
+  width: 80%;
+
+}
+
+
+#studies label.boolean.optional {
+
+  width: 50px;
+
+}
+
+
+#studies input[type="checkbox"] { margin:  8px; }
+
+
+td.done_column { width: 80px; }
+
+
+
+//.add_fields, .remove_fields { margin-left: 150px; }
+
+
+#studies > .nested-fields > table .remove_fields { margin-left: 0px; line-height: 30px; }
+
+
+#studies .clearfix { margin-bottom: 2px; }
+
+
+#studies > .nested-fields > .links > a.add_fields { margin-top: 2px; width:100%; display:block; margin-bottom: 20px; }
+
+#studies > .links > a.add_fields { margin-top: 20px; width: 100%; display:block; border-top: 1px dashed silver; }
+
+
+
+
+.institutions { margin-left: 100px; }
+
+
+td .btn {
+
+  margin-left: 3px;
+
+}
+
+
+.well.well-compact {
+
+  margin: 5px;
+
+}
