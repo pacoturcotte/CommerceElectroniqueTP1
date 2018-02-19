@@ -1,12 +1,12 @@
 <div class="alert alert-warning">
   <p>
-    Un client possède plusieurs informations différentes.
+    Voici les informations du client.
   </p></div>
 <table class="table">
   <tr>
     <td>Nom</td>
     <td>
-      <%= @client.name %>
+      <%= @client.nom %>
     </td>
   </tr>
   <tr>
@@ -42,7 +42,7 @@
   <tr>
     <td>Conjoint</td>
     <td>
-      <%= (@client.conjoint ? @client.conjoint.try(:nom) : 'Pas de conjoint') %>
+
     </td>
   </tr>
 </table>
@@ -52,19 +52,7 @@
 
 </p>
 <table class="table">
-  <% @client.adresses.each do |adress|
-  %>
-    <tr>
-      <td><%= adress.numerocivique %>
-      </td>
-      <td><%= adress.rue %>
-      </td>
-      <td><%= adress.codepostal %></td>
-      <td><%= adress.ville  %></td>
-      <td><%= adress.province %>
-      </td>
-    </tr>
-  <% end %></table>
+
 <h3>Enfants</h3>
 <table class="table">
   <% @client.enfants.each do |enfant|
@@ -80,14 +68,7 @@
     </tr>
   <% end %></table>
 <h3>Etats civils</h3>
-<table class="table">
-  <% @client.etat_civils.each do |etat_civil|
-  %>
-    <tr>
-      <td><%= etat_civil.type %></td>
-    </tr>
-  <% end %>
-</table>
+
 <h3>Employeurs</h3>
 <table class="table">
   <% @client.employeurs.each do |employeur|
@@ -99,22 +80,10 @@
   <% end %></table>
 <h3>Études</h3>
 <table class="table">
-  <% @client.studies.each do |study|
-  %>
-    <tr>
-      <td><%= study.secteuretudes %></td>
-      <td><%= study.niveau %></td>
-      <td><%= study.datedebut %></td>
-      <td><%= study.datecompletion %></td>
-    </tr>
-  <% end %></table>
+
+</table>
 <h3>Institutions</h3>
 <table class="table">
-  <% @client.institutions.each do |institution|
-  %>
-    <tr>
-      <td><%= institution.nom %></td>
-    </tr>
-  <% end %></table>
+ </table>
 
 <%= link_to 'Edit', edit_client_path(@client) %> | <%= link_to 'Back', clients_path %>

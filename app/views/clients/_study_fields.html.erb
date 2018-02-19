@@ -4,13 +4,12 @@
     <%= f.input :niveau %>
     <%= f.input :datedebut %>
     <%= f.input :datecompletion %>
-    <%= link_to_remove_association "retirer l'étude", f %>
 </div>
   <div class="institutions">
     <%= f.simple_fields_for :institutions do |institution|
     %><%= render 'institution_fields', :f => institution %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'Ajouter une institution', f, :institutions %>
+
     </div>
   </div>

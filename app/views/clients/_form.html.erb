@@ -23,14 +23,11 @@
       <%= link_to 'Enfants (:has_many :through)', '#enfants', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Etats_civils (:has_many :through)', '#etats_civils', data: {toggle: 'tab'} %>
+      <%= link_to 'Etat_civils (:has_many :through)', '#etats_civils', data: {toggle: 'tab'} %>
     </li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="adresses" role="tabpanel">
-      <%= f.simple_fields_for :adresses do |adress|
-      %><%= render 'adress_fields', :f => adress %>
-      <% end %>
 
     </div>
     <div class="tab-pane" id="studies" role="tabpanel">
@@ -42,29 +39,16 @@
 
       </div>
     </div>
-    <div class="tab-pane" id="conjoint" role="tabpanel">
-      <div id="conjoint_from_list">
-        <%= f.association :conjoint, collection: Client.order(:nom), prompt: 'Choisir un conjoint déjà existant' %>
-      </div><%= link_to_add_association 'Ajouter une nouvelle personne comme conjoint', f, :owner %>
+
+
+    <div class="tab-pane" id="employeurs" role="tabpanel">
 
     </div>
-    <div class="tab-pane" id="employeurs" role="tabpanel">
-      <%= f.simple_fields_for :employeurs do |employeur|
-      %><%= render 'employeurs', :f => employeur %>
-      <% end %>
-      <%= link_to_add_association 'Ajouter un employeur', f, :employeurs %>
-    </div>
     <div class="tab-pane" id="enfants" role="tabpanel">
-      <%= f.simple_fields_for :enfants do |enfant|
-      %><%= render 'enfants', :f => enfant %>
-      <% end %>
-      <%= link_to_add_association 'Ajouter un enfant', f, :enfants %>
+
     </div>
-    <div class="tab-pane" id="etats_civils" role="tabpanel">
-      <%= f.simple_fields_for :etats_civils do |etats_civil|
-      %><%= render 'etats_civils', :f => etats_civil %>
-      <% end %>
-      <%= link_to_add_association 'Ajouter un etat civil', f, :etats_civils %>
+    <div class="tab-pane" id="etat_civils" role="tabpanel">
+
     </div>
   </div>
   <div class="actions">

@@ -1,6 +1,7 @@
 class Study < ApplicationRecord
   belongs_to :client
   belongs_to :institution
+  has_many :clients, inverse_of: :study
   has_many :institutions, inverse_of: :study
   validates_presence_of :secteuretudes
 
