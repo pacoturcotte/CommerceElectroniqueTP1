@@ -39,6 +39,27 @@
     </div>
 
     <div class="tab-pane" id="studies" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Secteur d'études</th>
+          <th>Niveau</th>
+          <th>Date de début</th>
+          <th>Date de complétion</th>
+        </tr>
+        </thead>
+        <tbody class="studies">
+        <%= f.simple_fields_for :studies do |study| %>
+          <%= render 'study_fields', f: study %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+        <%= link_to_add_association 'Ajouter une etude', f, :studies, class: 'btn btn-primary', data: {
+            association_insertion_node: '.studies', association_insertion_method: :append } %>
+      </div>
     </div>
 
     <div class="tab-pane" id="employeurs" role="tabpanel">

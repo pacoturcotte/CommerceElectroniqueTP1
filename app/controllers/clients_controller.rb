@@ -94,7 +94,7 @@ class ClientsController < ApplicationController
     params.require(:client).permit(
       :prenom, :nom, :datenaissance, :nas, :adresse_id, :nombreenfants, :comptetaxesproprietaire,
       adresses_attributes: [:id, :numerocivique, :rue, :codepostal, :ville, :province, :_destroy],
-      studies_attributes: [:id, :_destroy, :secteuretudes, :niveau, :datedebut, :datecompletion, :institution_id],
+      studies_attributes: [:id, :_destroy, :secteuretudes, :niveau, :datedebut, :datecompletion, :institution_id, :client_id],
       institutions_attributes: [:id, :_destroy, :nom, :client_id, :adresse_id],
       employeurs_attributes: [:id, :_destroy, :client_id, :nom, :adresse_id],
       etat_civils_attributes: [:id, :typee, :client_id, :_destroy],
