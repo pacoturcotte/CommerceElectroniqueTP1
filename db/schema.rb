@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220023937) do
+ActiveRecord::Schema.define(version: 20180220163444) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "numerocivique"
@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20180220023937) do
     t.string "codepostal"
     t.string "ville"
     t.string "province"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_adresses_on_client_id"
   end
 
   create_table "client_etat_civils", force: :cascade do |t|

@@ -6,6 +6,7 @@ one:
   codepostal: MyString
   ville: MyString
   province: MyString
+  client: one
 
 two:
   numerocivique: MyString
@@ -13,3 +14,4 @@ two:
   codepostal: MyString
   ville: MyString
   province: MyString
+  client: two

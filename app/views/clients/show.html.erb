@@ -10,7 +10,7 @@
     </td>
   </tr>
   <tr>
-    <td>Prenom</td>
+    <td>Prénom</td>
     <td>
       <%= @client.prenom %>
     </td>
@@ -39,22 +39,36 @@
       <%= @client.comptetaxesproprietaire %>
     </td>
   </tr>
-  <tr>
-    <td>Conjoint</td>
-    <td>
-
-    </td>
-  </tr>
 </table>
-<h3>Adresses</h3>
-<p>
-  Liste de toutes les adresses ici.
+<h3>Adresse</h3>
 
-</p>
 <table class="table">
+  <% @client.adresses.each do |adr|
+  %>
+  <tr>
+    <th>Numéro civique</th>
+    <th>Rue</th>
+    <th>Code postal</th>
+    <th>Ville</th>
+    <th>Province</th>
+  </tr>
+  <tr>
+    <td> <%= adr.numerocivique %> </td>
+    <td> <%= adr.rue %> </td>
+    <td> <%= adr.codepostal %> </td>
+    <td> <%= adr.ville %> </td>
+    <td> <%= adr.province %> </td>
+  </tr>
+  <% end %>
+</table>
 
 <h3>Enfants</h3>
 <table class="table">
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Date de naissance</th>
+  </tr>
   <% @client.enfants.each do |enfant|
   %>
     <tr>
@@ -68,7 +82,11 @@
     </tr>
   <% end %></table>
 <h3>Etats civils</h3>
+
   <table class="table">
+    <tr>
+      <th>Type</th>
+    </tr>
     <% @client.etat_civils.each do |etat|
     %>
       <tr>
@@ -78,19 +96,46 @@
     <% end %></table>
 <h3>Employeurs</h3>
 <table class="table">
+  <tr>
+    <th>Nom</th>
+  </tr>
   <% @client.employeurs.each do |employeur|
   %>
     <tr>
       <td><%= employeur.nom %>
       </td>
     </tr>
-  <% end %></table>
+  <% end %>
+  </table>
 <h3>Études</h3>
 <table class="table">
-
+  <tr>
+    <th>Secteur d'études</th>
+    <th>Niveau</th>
+    <th>Date de début</th>
+    <th>Date de complétion</th>
+  </tr>
+  <% @client.studies.each do |study|
+  %>
+    <tr>
+      <td><%= study.secteuretudes %></td>
+      <td><%= study.niveau %></td>
+      <td><%= study.datedebut %></td>
+      <td><%= study.datecompletion %></td>
+    </tr>
+  <% end %>
 </table>
 <h3>Institutions</h3>
 <table class="table">
+  <tr>
+    <th>Nom</th>
+  </tr>
+  <% @client.institutions.each do |institution|
+  %>
+    <tr>
+      <td><%= institution.nom %></td>
+    </tr>
+  <% end %>
  </table>
 
 <%= link_to 'Edit', edit_client_path(@client) %> | <%= link_to 'Back', clients_path %>

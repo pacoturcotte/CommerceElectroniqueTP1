@@ -1,12 +1,10 @@
-<div class="nested-fields">
-  <%= f.input :numerocivique %>
-  <%= f.input :rue %>
-  <%= f.input :codepostal %>
-  <%= f.input :ville %>
-  <%= f.input :province %>
-  <div class="links">
-    <%= link_to_add_association 'Ajouter une adresse', f, :adresses %>
-
-  </div>
-  <%= link_to_remove_association "retirer l'adresse", f %>
-</div>
+<tr>
+  <td><%= f.input :numerocivique, label: false %></td>
+  <td><%= f.input :rue, label: false %></td>
+  <td><%= f.input :codepostal, label: false %></td>
+  <td><%= f.input :ville, label: false %></td>
+  <td><%= f.input :province, label: false %></td>
+  <td>
+    <%= link_to_remove_association "Retirer une adresse", f, class: 'btn btn-primary btn-xs' %>
+  </td>
+</tr>

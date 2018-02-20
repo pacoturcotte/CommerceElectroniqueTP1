@@ -1,7 +1,7 @@
 <%= simple_form_for @client do |f| %>
 
   <div class="form-check">
-  <%= f.input :nom%>
+  <%= f.input :nom %>
   <%= f.input :prenom %>
   <%= f.input :datenaissance %>
   <%= f.input :nas %>
@@ -11,7 +11,7 @@
 
   <ul class="nav nav-tabs" role="tablist">
     <li class="active">
-      <%= link_to '| Adresses |', '#adresses', data: {toggle: 'tab'} %>
+      <%= link_to '| Adresses |', '#adress', data: {toggle: 'tab'} %>
     </li>
     <li>
       <%= link_to '| Etudes |', '#studies', data: {toggle: 'tab'} %>
@@ -35,7 +35,27 @@
 
   <div class="tab-content">
 
-    <div class="tab-pane active" id="adresses" role="tabpanel">
+    <div class="tab-pane active" id="adress", role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Numéro civique</th>
+          <th>Rue</th>
+          <th>Code postal</th>
+          <th>Ville</th>
+          <th>Province</th>
+        </tr>
+        </thead>
+        <tbody class="adresses">
+        <%= f.simple_fields_for :adresses do |a| %>
+          <%= render 'adress_fields', f: a %>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="form-actions">
+        <%= link_to_add_association 'Ajouter une adresse', f, :adresses, class: 'btn btn-primary', data: {
+            association_insertion_node: '.adresses', association_insertion_method: :append } %>
+      </div>
     </div>
 
     <div class="tab-pane" id="studies" role="tabpanel">
@@ -56,8 +76,7 @@
       </table>
 
       <div class="form-actions">
-        <%= f.button :submit %>
-        <%= link_to_add_association 'Ajouter une etude', f, :studies, class: 'btn btn-primary', data: {
+        <%= link_to_add_association 'Ajouter une étude', f, :studies, class: 'btn btn-primary', data: {
             association_insertion_node: '.studies', association_insertion_method: :append } %>
       </div>
     </div>
@@ -77,7 +96,6 @@
       </table>
 
       <div class="form-actions">
-        <%= f.button :submit %>
         <%= link_to_add_association 'Ajouter un employeur', f, :employeurs, class: 'btn btn-primary', data: {
             association_insertion_node: '.employeurs', association_insertion_method: :append } %>
       </div>
@@ -98,7 +116,6 @@
       </table>
 
       <div class="form-actions">
-        <%= f.button :submit %>
         <%= link_to_add_association 'Ajouter une institution', f, :institutions, class: 'btn btn-primary', data: {
             association_insertion_node: '.institutions', association_insertion_method: :append } %>
       </div>
@@ -121,7 +138,6 @@
       </table>
 
       <div class="form-actions">
-        <%= f.button :submit %>
         <%= link_to_add_association 'Ajouter un enfant', f, :enfants, class: 'btn btn-primary', data: {
             association_insertion_node: '.enfants', association_insertion_method: :append } %>
       </div>
@@ -140,12 +156,11 @@
         <% end %>
         </tbody>
       </table>
-
       <div class="form-actions">
-        <%= f.button :submit %>
         <%= link_to_add_association 'Ajouter un état civil', f, :etat_civils, class: 'btn btn-primary', data: {
             association_insertion_node: '.etat_civils', association_insertion_method: :append } %>
       </div>
+
     </div>
 
   </div>

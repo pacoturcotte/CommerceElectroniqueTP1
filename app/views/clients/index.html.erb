@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
   <tr>
+    <th>Prénom</th>
     <th>Nom</th>
     <th>Action</th>
   </tr>
@@ -11,8 +12,8 @@
   <% @clients.each do |client|
   %>
     <tr>
-      <td><%= client.nom %>
-      </td>
+      <td><%= client.prenom %></td>
+      <td><%= client.nom %> </td>
       <td>
         <%= link_to 'Show', client, class: 'btn btn-default btn-xs' %>
         <%= link_to 'Edit', edit_client_path(client), class: 'btn btn-default btn-xs' %>
@@ -22,4 +23,4 @@
   <% end %>
   </tbody>
 </table>
-<%= link_to 'Nouveau client', new_client_path %>
+<%= link_to 'Nouveau client', new_client_path, class: 'btn btn-primary' %>
