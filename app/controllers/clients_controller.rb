@@ -1,14 +1,16 @@
 class ClientsController < ApplicationController
 
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
+
   # GET /client/new
   # GET /client/new.xml
   def new
     @client = Client.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml { render :xml => @client }
     end
+
   end
 
   # POST /clients
@@ -84,6 +86,10 @@ class ClientsController < ApplicationController
 
   private
 
+  def set_client
+    @client = Client.find(params[:id])
+  end
+
   def client_params
     params.require(:client).permit(
       :prenom, :nom, :datenaissance, :nas, :adresse_id, :nombreenfants, :comptetaxesproprietaire,
@@ -92,7 +98,7 @@ class ClientsController < ApplicationController
       institutions_attributes: [:id, :nom, :_destroy],
       employeurs_attributes: [:id, :nom, :_destroy],
       etat_civils_attributes: [:id, :type, :_destroy],
-      enfants_attributes: [:id, :nom, :prenom, :datenaissance, :_destroy]
+      enfants_attributes: [:id, :_destroy, :client_id, :nom, :prenom, :datenaissance]
     )
   end
 end

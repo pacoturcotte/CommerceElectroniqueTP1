@@ -1,6 +1,8 @@
-<div class="nested-fields">
-  <%= f.input :nom %>
-  <%= f.input :prenom %>
-  <%= f.input :datenaissance %>
-  <%= link_to_remove_association "retirer l'enfant", f %>
-</div>
+<tr class="nested-fields">
+  <td><%= f.input :nom, label: false %></td>
+  <td><%= f.input :prenom, label: false %></td>
+  <td><%= f.input :datenaissance, label: false %></td>
+  <td>
+    <%= link_to_remove_association "Retirer un enfant", f, class: 'btn btn-primary btn-xs' %>
+  </td>
+</tr>

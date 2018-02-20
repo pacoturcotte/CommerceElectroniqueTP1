@@ -1,56 +1,74 @@
 <%= simple_form_for @client do |f| %>
-  <%= f.input :nom, :hint => 'Le nom du client' %>
-  <%= f.input :prenom, :hint => 'Le prénom du client' %>
-  <%= f.input :datenaissance, :hint => 'La date de naissance du client' %>
-  <%= f.input :nas, :hint => 'Le NAS du client' %>
-  <%= f.input :nombreenfants, :hint => 'Le nombre denfants du client' %>
-  <%= f.input :comptetaxesproprietaire, :hint => 'Le compte taxes propriétaire du client' %>
+
+  <div class="form-check">
+  <%= f.input :nom%>
+  <%= f.input :prenom %>
+  <%= f.input :datenaissance %>
+  <%= f.input :nas %>
+  <%= f.input :nombreenfants %>
+  <%= f.input :comptetaxesproprietaire %>
+  </div>
 
   <ul class="nav nav-tabs" role="tablist">
     <li class="active">
-      <%= link_to 'Adresses (:belongs_to)', '#adresses', data: {toggle: 'tab'} %>
+      <%= link_to '| Adresses |', '#adresses', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Studies (:has_many)', '#studies', data: {toggle: 'tab'} %>
+      <%= link_to '| Studies |', '#studies', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Conjoint (:belongs_to)', '#conjoint', data: {toggle: 'tab'} %>
+      <%= link_to '| Conjoint |', '#conjoint', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Employeurs (:has_many :through)', '#employeurs', data: {toggle: 'tab'} %>
+      <%= link_to '| Employeurs |', '#employeurs', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Enfants (:has_many :through)', '#enfants', data: {toggle: 'tab'} %>
+      <%= link_to '| Enfants |', '#enfants', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to 'Etat_civils (:has_many :through)', '#etats_civils', data: {toggle: 'tab'} %>
+      <%= link_to '| Etat_civils |', '#etats_civils', data: {toggle: 'tab'} %>
     </li>
   </ul>
+
   <div class="tab-content">
+
     <div class="tab-pane active" id="adresses" role="tabpanel">
-
     </div>
-    <div class="tab-pane" id="studies" role="tabpanel">
-      <%= simple_fields_for :studies do |study|
-      %><%= render 'study_fields', :f => study %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Ajouter des études', f, :studies %>
 
+    <div class="tab-pane" id="studies" role="tabpanel">
+    </div>
+
+    <div class="tab-pane" id="employeurs" role="tabpanel">
+    </div>
+
+    <div class="tab-pane" id="enfants" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date de naissance</th>
+        </tr>
+        </thead>
+        <tbody class="enfants">
+        <%= f.simple_fields_for :enfants do |enfant| %>
+          <%= render 'enfant_fields', f: enfant %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+        <%= link_to_add_association 'Ajouter un enfant', f, :enfants, class: 'btn btn-primary', data: {
+            association_insertion_node: '.enfants', association_insertion_method: :append } %>
       </div>
     </div>
 
-
-    <div class="tab-pane" id="employeurs" role="tabpanel">
-
-    </div>
-    <div class="tab-pane" id="enfants" role="tabpanel">
-
-    </div>
     <div class="tab-pane" id="etat_civils" role="tabpanel">
-
     </div>
+
   </div>
+
   <div class="actions">
     <%= f.button :submit, :disable_with => 'Please wait ...' %>
   </div>
