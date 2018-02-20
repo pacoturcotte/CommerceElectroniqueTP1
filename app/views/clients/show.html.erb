@@ -68,7 +68,14 @@
     </tr>
   <% end %></table>
 <h3>Etats civils</h3>
-
+  <table class="table">
+    <% @client.etat_civils.each do |etat|
+    %>
+      <tr>
+        <td><%= etat.typee %>
+        </td>
+      </tr>
+    <% end %></table>
 <h3>Employeurs</h3>
 <table class="table">
   <% @client.employeurs.each do |employeur|

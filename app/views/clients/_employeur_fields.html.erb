@@ -1,4 +1,4 @@
-<div class="nested-fields">
-  <%= f.input :nom %>
-  <%= link_to_remove_association "retirer l'employeur", f %>
-</div>
+<tr class="nested-fields">
+  <td><%= f.input :nom, label: false %></td>
+  <td><%= link_to_remove_association "retirer un employeur", f, class: 'btn btn-primary btn-xs' %></td>
+</tr>

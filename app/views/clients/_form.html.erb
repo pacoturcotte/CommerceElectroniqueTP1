@@ -14,7 +14,10 @@
       <%= link_to '| Adresses |', '#adresses', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to '| Studies |', '#studies', data: {toggle: 'tab'} %>
+      <%= link_to '| Etudes |', '#studies', data: {toggle: 'tab'} %>
+    </li>
+    <li>
+      <%= link_to '| Institutions |', '#institutions', data: {toggle: 'tab'} %>
     </li>
     <li>
       <%= link_to '| Conjoint |', '#conjoint', data: {toggle: 'tab'} %>
@@ -26,7 +29,7 @@
       <%= link_to '| Enfants |', '#enfants', data: {toggle: 'tab'} %>
     </li>
     <li>
-      <%= link_to '| Etat_civils |', '#etats_civils', data: {toggle: 'tab'} %>
+      <%= link_to '| Etat_civils |', '#etat_civils', data: {toggle: 'tab'} %>
     </li>
   </ul>
 
@@ -39,6 +42,45 @@
     </div>
 
     <div class="tab-pane" id="employeurs" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Nom</th>
+        </tr>
+        </thead>
+        <tbody class="employeurs">
+        <%= f.simple_fields_for :employeurs do |employeur| %>
+          <%= render 'employeur_fields', f: employeur %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+        <%= link_to_add_association 'Ajouter un employeur', f, :employeurs, class: 'btn btn-primary', data: {
+            association_insertion_node: '.employeurs', association_insertion_method: :append } %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="institutions" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Nom</th>
+        </tr>
+        </thead>
+        <tbody class="institutions">
+        <%= f.simple_fields_for :institutions do |institution| %>
+          <%= render 'institution_fields', f: institution %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+        <%= link_to_add_association 'Ajouter une institution', f, :institutions, class: 'btn btn-primary', data: {
+            association_insertion_node: '.institutions', association_insertion_method: :append } %>
+      </div>
     </div>
 
     <div class="tab-pane" id="enfants" role="tabpanel">
@@ -65,6 +107,24 @@
     </div>
 
     <div class="tab-pane" id="etat_civils" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody class="etat_civils">
+        <%= f.simple_fields_for :etat_civils do |etatcivil| %>
+          <%= render 'etat_civil_fields', f: etatcivil %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+        <%= link_to_add_association 'Ajouter un état civil', f, :etat_civils, class: 'btn btn-primary', data: {
+            association_insertion_node: '.etat_civils', association_insertion_method: :append } %>
+      </div>
     </div>
 
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217161828) do
+ActiveRecord::Schema.define(version: 20180220023937) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "numerocivique"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20180217161828) do
 
   create_table "client_etat_civils", force: :cascade do |t|
     t.integer "client_id"
-    t.integer "etatcivil_id"
+    t.integer "etat_civil_id"
     t.datetime "datedebut"
     t.datetime "datefin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_client_etat_civils_on_client_id"
-    t.index ["etatcivil_id"], name: "index_client_etat_civils_on_etatcivil_id"
+    t.index ["etat_civil_id"], name: "index_client_etat_civils_on_etat_civil_id"
   end
 
   create_table "client_has_conjoints", force: :cascade do |t|
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20180217161828) do
   end
 
   create_table "etat_civils", force: :cascade do |t|
-    t.string "type"
+    t.string "typee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
