@@ -1,8 +1,8 @@
 <tr class="nested-fields">
   <td><%= f.input :secteuretudes, label: false %></td>
   <td><%= f.input :niveau, label: false %></td>
-  <td><%= f.input :datedebut, label: false %></td>>
-  <td><%= f.input :datecompletion, label: false %></td>
+  <td><%= f.date_select :datedebut, :start_year=>1960, label: false %></td>>
+  <td><%= f.date_select :datecompletion, label: false %></td>
   <td>
     <%= link_to_remove_association "Retirer une étude", f, class: 'btn btn-primary btn-xs' %>
   </td>

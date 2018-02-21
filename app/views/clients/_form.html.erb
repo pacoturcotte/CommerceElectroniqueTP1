@@ -17,7 +17,7 @@
         <th>Date de naissance</th>
       </tr>
       <tr>
-        <td><%= f.input :datenaissance, label: false %></td>
+        <td><%= f.date_select :datenaissance, :start_year=>1900, label: false %></td>
       </tr>
       <tr>
         <th>NAS</th>
