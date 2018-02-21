@@ -1,12 +1,43 @@
 <%= simple_form_for @client do |f| %>
-
-  <div class="form-check">
-  <%= f.input :nom %>
-  <%= f.input :prenom %>
-  <%= f.input :datenaissance %>
-  <%= f.input :nas %>
-  <%= f.input :nombreenfants %>
-  <%= f.input :comptetaxesproprietaire %>
+  <div class="form-group">
+    <table>
+      <tr>
+        <th>Nom</th>
+      </tr>
+      <tr>
+        <td><%= f.input :nom, label: false %></td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+      </tr>
+      <tr>
+        <td><%= f.input :prenom, label: false %></td>
+      </tr>
+      <tr>
+        <th>Date de naissance</th>
+      </tr>
+      <tr>
+        <td><%= f.input :datenaissance, label: false %></td>
+      </tr>
+      <tr>
+        <th>NAS</th>
+      </tr>
+      <tr>
+        <td><%= f.input :nas, label: false %></td>
+      </tr>
+      <tr>
+        <th>Nombre d'enfants</th>
+      </tr>
+      <tr>
+        <td><%= f.input :nombreenfants, label: false %></td>
+      </tr>
+      <tr>
+        <th>Compte taxe propriétaire</th>
+      </tr>
+      <tr>
+        <td><%= f.input :comptetaxesproprietaire, label: false %></td>
+      </tr>
+    </table>
   </div>
 
   <ul class="nav nav-tabs" role="tablist">
@@ -47,8 +78,8 @@
         </tr>
         </thead>
         <tbody class="adresses">
-        <%= f.simple_fields_for :adresses do |a| %>
-          <%= render 'adress_fields', f: a %>
+        <%= f.simple_fields_for :adresses do |adress| %>
+          <%= render 'adress_fields', f: adress %>
         <% end %>
         </tbody>
       </table>
@@ -78,6 +109,27 @@
       <div class="form-actions">
         <%= link_to_add_association 'Ajouter une étude', f, :studies, class: 'btn btn-primary', data: {
             association_insertion_node: '.studies', association_insertion_method: :append } %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="conjoint" role="tabpanel">
+      <table>
+        <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+        </tr>
+        </thead>
+        <tbody class="conjoints">
+        <%= f.simple_fields_for :conjoints do |conjoint| %>
+          <%= render 'conjoint_fields', f: conjoint %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="form-actions">
+        <%= link_to_add_association 'Ajouter un conjoint', f, :conjoints, class: 'btn btn-primary', data: {
+            association_insertion_node: '.conjoints', association_insertion_method: :append } %>
       </div>
     </div>
 

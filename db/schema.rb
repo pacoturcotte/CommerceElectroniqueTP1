@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220163444) do
+ActiveRecord::Schema.define(version: 20180221020027) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "numerocivique"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180220163444) do
     t.datetime "datefin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "conjoint_id"
     t.index ["client_id"], name: "index_client_has_conjoints_on_client_id"
   end
 
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180220163444) do
     t.integer "adresse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "conjoint_id"
     t.index ["adresse_id"], name: "index_clients_on_adresse_id"
   end
 
